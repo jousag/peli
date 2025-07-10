@@ -43,29 +43,30 @@ public class App
                     cave.listMonsters();
                     break;
                 case 3:
-                    System.out.println("Valitse hirviö, johon haluat hyökätä: ");
+                    System.out.println("Valitse hirviö, johon hyökätä: ");
                     cave.listMonsters();
                     int monsterIndex = sc.nextInt() - 1; // Convert to zero-based index
                     Monster selectedMonster = cave.getMonster(monsterIndex);
                     if (selectedMonster != null) {
-                        player.attackMonster(selectedMonster);
+                        player.attack(selectedMonster);
                     } else {
                         System.out.println("Virheellinen hirviövalinta.");
                     }
                     break;
                 case 4:
-                    System.err.println("Anna tiedostonnimi, johon peli tallennetaan:");
+                    System.err.println("Anna tiedostonnimi, johon peli tallennetaa:");
                     String saveFileName = sc.nextLine();
                     try {
                         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(saveFileName));
                         out.writeObject(cave);
                         out.close();
+                        System.out.println("Peli tallennettu tiedostoon: " + saveFileName);
                     } catch (IOException e) {
                         System.err.println("Virhe pelin tallentamisessa: " + e.getMessage());
                     }
                     break;
                 case 5:
-                    System.err.println("Anna tiedostonnimi, josta peli ladataan:");
+                    System.err.println("Anna tiedoston nimi, josta peli ladataan:");
                     String loadFileName = sc.nextLine();
                     try {
                         ObjectInputStream in = new ObjectInputStream(new FileInputStream(loadFileName));
@@ -77,6 +78,8 @@ public class App
                     }
                     break;
                 case 0:
+                    System.out.println("Peli päättyy. Kiitos pelaamisesta!");
+                    sc.close();
                     exit = true;
                     break;
                 default:

@@ -11,7 +11,7 @@ public class Player implements Serializable {
     public String getName() {
         return name;
     }
-    public void attackMonster(Monster monster) {
+    public void attack(Monster monster) {
         if (monster.getHealth() > 0) {
             System.out.println(name + " hyökkää " + monster.getType() + " hirviöön!");
             monster.takeDamage(10);
