@@ -19,24 +19,29 @@ public class Cave implements Serializable {
     }
 
     public void listMonsters() {
-        if (monsters == null || monsters.isEmpty()) {
-            System.out.println("Luola on tyhjä.");
-            return;
-        }
         for (int i = 0; i < monsters.size(); i++) {
             Monster monster = monsters.get(i);
             monster.printInfo(i + 1);
         }
     }
     public Monster getMonster(int index) {
-        if (index >= 0 && index < monsters.size()) {
+        if (monsters != null && index >= 0 && index < monsters.size()) {
             return monsters.get(index);
         }
-        return null; // Return null if index is out of bounds
+        System.out.println("Hirviötä ei löytynyt.");
+        return null;
+    }
+    public Player getPlayer() {
+        return player;
     }
     public void removeMonster(Monster monster) {
         if (monsters != null) {
             monsters.remove(monster);
         }
     }
+
+    public ArrayList<Monster> getMonsters() {
+        return monsters;
+    }
+
 }

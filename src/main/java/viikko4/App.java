@@ -40,6 +40,10 @@ public class App
                     cave.addMonster(monster);
                     break;
                 case 2:
+                    if (cave.getMonsters() == null || cave.getMonsters().isEmpty()) {
+                        System.out.println("Luola on tyhjä.");
+                        break;
+                    }
                     System.out.println("Luolan hirviöt:");
                     cave.listMonsters();
                     break;
