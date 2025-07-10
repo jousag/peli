@@ -31,7 +31,7 @@ public class Monster implements Serializable {
             System.out.println("Hirviöllä on " + this.health + " elämää jäljellä.");
             return this.health;
         } else {
-            System.out.println("Hirviö on kuollut.");
+            System.out.println(this.type + " on kuollut!");
             return 0;
         }
     }

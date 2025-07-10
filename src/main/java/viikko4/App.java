@@ -48,7 +48,10 @@ public class App
                     int monsterIndex = sc.nextInt() - 1; // Convert to zero-based index
                     Monster selectedMonster = cave.getMonster(monsterIndex);
                     if (selectedMonster != null) {
-                        player.attack(selectedMonster);
+                        int result = player.attack(selectedMonster);
+                        if (result == 0) {
+                            cave.removeMonster(selectedMonster);
+                        }
                     } else {
                         System.out.println("Virheellinen hirviövalinta.");
                     }
