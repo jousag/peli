@@ -57,25 +57,26 @@ public class App
                     }
                     break;
                 case 4:
-                    System.err.println("Anna tiedostonnimi, johon peli tallennetaa:");
+                    System.out.println("Anna tiedostonnimi, johon peli tallennetaa:");
                     String saveFileName = sc.nextLine();
                     try {
                         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(saveFileName));
                         out.writeObject(cave);
                         out.close();
-                        System.out.println("Peli tallennettu tiedostoon: " + saveFileName);
+                        System.out.println("Peli tallennettiin tiedostoon: " + saveFileName);
                     } catch (IOException e) {
                         System.err.println("Virhe pelin tallentamisessa: " + e.getMessage());
                     }
                     break;
                 case 5:
-                    System.err.println("Anna tiedoston nimi, josta peli ladataan:");
+                    System.out.println("Anna tiedoston nimi, josta peli ladataan:");
                     String loadFileName = sc.nextLine();
                     try {
                         ObjectInputStream in = new ObjectInputStream(new FileInputStream(loadFileName));
                         Cave loadedCave = (Cave) in.readObject();
                         in.close();
                         cave = loadedCave;
+                        System.out.println("Peli ladattu tiedostosta: " + loadFileName + ". Tervetuloa takaisin, " + player.getName());
                     } catch (IOException | ClassNotFoundException e) {
                         System.err.println("Virhe pelin lataamisessa: " + e.getMessage());
                     }
