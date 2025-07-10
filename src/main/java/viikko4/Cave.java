@@ -23,7 +23,7 @@ public class Cave implements Serializable {
             System.out.println("Luola on tyhjä.");
             return;
         }
-        System.out.println("Luolan hirviöt:");
+        System.out.println("Luolan hirviöt: ");
         for (int i = 0; i < monsters.size(); i++) {
             Monster monster = monsters.get(i);
             monster.printInfo(i + 1);
